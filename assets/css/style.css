@@ -1,57 +1,66 @@
+.navbar {
+	position: relative;
+	z-index: 1;
+	padding: 5px 0px 0px 0px;
+}
+
+.aspectMaint {
+	height: 200px;
+	margin: 5px 0 5px 0;
+}
 
 .giffy {
 	border-radius: 5px;
-	max-height: 250px;
 	transition: opacity .8s;
+	max-height: 200px;
+	width: 100%;
 }
 
 .giffy:hover {
 	opacity: 0.8;
 }
 
-button {
-	margin-right: 21px;
-	margin-top: 70px;
-}
-
-img {
-	padding: 5px;
-}
-
-.inputCont {
-	margin-top: 45px;
+.inputMain {
+	margin-top: 95px;
 }
 
 #gifContainer {
-	overflow: none;
+	overflow: auto;
 	border-radius: 5px;
-	background: #FFF;
+	background: rgba(255,255,255,0.8);
 	border: 1px #0CF solid;
-	height: auto;
-	min-height: 450px;
+	min-height: 60vh;
 	margin-top: 50px;
-	padding: 15px 10px 15px 10px;
 	margin-bottom: 50px;
+	padding: 15px 10px 15px 10px;
+	box-shadow: 0 0 10px black inset;
 }
 
 h1 {
+	user-select: none;
+	color: #333;
+	text-shadow: 2px 0 0 #FFF, -2px 0 0 #FFF, 0 2px 0 #FFF, 0 -2px 0 #FFF, 1px 1px #FFF, -1px -1px 0 #FFF, 1px -1px #FFF, -1px 1px 0 #FFF;
 	margin-top: 45px;
 	font-size: 75px;
+	margin-bottom: 40px;
 }
 
 body {
 	background: #247BA0;
 	color: #444;
+	background: url(../resources/bkg.jpg) no-repeat #000;
+	background-attachment: fixed;
 }
 
-#input {
-
+a {
+	color: #000;
 }
 
-/* 
-#247ba0 main b
-#70c1b3 turq
-#b2dbbf gray turq
-#E3ffBd yellow turq
-#FF1654 r 
-*/
+.navbar-default {
+	background: #4C7C86;
+	border-color: #4B7B85;
+}
+
+.navbar-default .navbar-brand {
+	color: #FFF;
+}
