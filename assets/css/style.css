@@ -1,0 +1,57 @@
+
+.giffy {
+	border-radius: 5px;
+	max-height: 250px;
+	transition: opacity .8s;
+}
+
+.giffy:hover {
+	opacity: 0.8;
+}
+
+button {
+	margin-right: 21px;
+	margin-top: 70px;
+}
+
+img {
+	padding: 5px;
+}
+
+.inputCont {
+	margin-top: 45px;
+}
+
+#gifContainer {
+	overflow: none;
+	border-radius: 5px;
+	background: #FFF;
+	border: 1px #0CF solid;
+	height: auto;
+	min-height: 450px;
+	margin-top: 50px;
+	padding: 15px 10px 15px 10px;
+	margin-bottom: 50px;
+}
+
+h1 {
+	margin-top: 45px;
+	font-size: 75px;
+}
+
+body {
+	background: #247BA0;
+	color: #444;
+}
+
+#input {
+
+}
+
+/* 
+#247ba0 main b
+#70c1b3 turq
+#b2dbbf gray turq
+#E3ffBd yellow turq
+#FF1654 r 
+*/
