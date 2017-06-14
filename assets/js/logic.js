@@ -6,7 +6,7 @@ var offset;
 
 var apiKey = "&rating&api_key=dc6zaTOxFJmzC";
 var parameters = "&limit=" + limit + "&offset=" + offset;
-var api = "http://api.giphy.com/v1/gifs/search?q=";
+var api = "https://api.giphy.com/v1/gifs/search?q=";
 
 function runApi() {
 	tagType = $("#input").val();
