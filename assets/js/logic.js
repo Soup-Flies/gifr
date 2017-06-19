@@ -20,7 +20,7 @@ function addGifs(still, original, rating) {
 	$("#gifContainer").append(newDiv);
 };
 
-//Call the Giphy api, and setup variables to more easily handle the objects returned
+//Setup variables to more easily handle the objects returned from runApi
 function apiSetup(search, random) {
 	var tagType = search;
 	var parameters = "&limit=" + limit + "&offset=" + offset + "&rating";
@@ -40,6 +40,8 @@ function apiSetup(search, random) {
 	randomSearch = false;
 };
 
+
+//Call the api with variables set in apiSetup
 function runApi(apiUrl, random) {
 		if (random) {
 			for (var i = 0; i < 8; ++i) {
