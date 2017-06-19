@@ -3,12 +3,14 @@ var random = Math.floor(Math.random() * 30);
 var offset = random;
 var lastSearch = "";
 var firstSearch = true;
+var randomSearch = false;
 
-var apiKey = "&api_key=dc6zaTOxFJmzC";
+var apiKey = "api_key=dc6zaTOxFJmzC";
 var api = "https://api.giphy.com/v1/gifs/";
 
 //Display returned gifs from API and add rating information to them
 function addGifs(still, original, rating) {
+	$.get(original);
 	var newDiv = $("<div class='aspectMaint col-xs-6 col-md-3'>")
 	var newGif = $("<img data-toggle='tooltip' data-placement='bottom' class='giffy'>");
 	$(newGif).attr("src", still);
@@ -23,29 +25,41 @@ function apiSetup(search, random) {
 	var tagType = search;
 	var parameters = "&limit=" + limit + "&offset=" + offset + "&rating";
 	var currentApiUrl;
+
+	if (randomSearch) {
+		$("#gifContainer").empty();
+	};
+
 	if (!random) {
-		currentApiUrl = api + "search?q=" + tagType + parameters + apiKey;
-		runApi(currentApiUrl);
+		currentApiUrl = api + "search?q=" + tagType + parameters + "&" + apiKey;
+		runApi(currentApiUrl, false);
 	} else {
-		currentApiUrl = api + "random" + apiKey;
-		console.log("random");
-		for (var i = 0; i < 6; ++i) {
-			runApi(currentApiUrl);
-		};
-		
-	}
+			currentApiUrl = api + "random?" + apiKey;
+			runApi(currentApiUrl, true);		
+	};
+	randomSearch = false;
 };
 
-function runApi(apiUrl) {
-	$.getJSON(apiUrl,function(json) {
-		$.each(json.data, function(index, value) {
-			var rating = value.rating;
-			var animImg = value.images.original.url;
-			var stillImg = value.images.original_still.url;
-			$.get(animImg);
-			addGifs(stillImg, animImg, rating);
-		});	
-	});
+function runApi(apiUrl, random) {
+		if (random) {
+			for (var i = 0; i < 8; ++i) {
+				$.getJSON(apiUrl,function(json) {
+					var rating = "N/A";
+					var animImg = json.data.image_original_url;
+					var stillImg = json.data.fixed_height_small_still_url;
+					addGifs(stillImg, animImg, rating);
+				});
+			}
+		} else {
+			$.getJSON(apiUrl,function(json) {
+				$.each(json.data, function(index, value) {
+					var rating = value.rating;
+					var animImg = value.images.original.url;
+					var stillImg = value.images.original_still.url;
+					addGifs(stillImg, animImg, rating);
+				});
+			});
+		};
 	searchTest();
 }
 
@@ -63,7 +77,7 @@ function searchTest() {
 
 $(document).ready(function() {
 
-	//Handling for the click of search button
+	//Handling for the click of search buttons
 	$("#search").click(function() {
 		var search = $("#input").val();
 		apiSetup(search, false);
@@ -79,7 +93,10 @@ $(document).ready(function() {
 	});
 
 	$("#randomSearch").click(function(event) {
+		$("#gifContainer").empty();
 		apiSetup(null, true);
+		randomSearch = true;
+		
 	})
 
 	//Take enter as input confirm versus a click

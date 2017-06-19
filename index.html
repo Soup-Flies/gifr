@@ -22,10 +22,24 @@
       <a class="navbar-brand" href="#top">gifR</a>
     </div>
     <div class="row inputMain">
-    	<div class="input-group inputCont col-xs-4 col-xs-offset-4">
-    		<input type="text" class="form-control" placeholder="Search..." aria-describedby="Gif Search" id="input" autofocus>
-    		<span class="input-group-addon query_btn" id="basic-addon2"><span class="glyphicon glyphicon-search"></span></span>
-    	</div>
+    <div class="input-group inputCont ">
+    	
+    </div>
+	    <div class="input-group col-xs-4 col-xs-offset-4">
+	     <input type="text" class="form-control" placeholder="Search with enter" aria-label="Gif Search" id="input" autofocus>
+	       <div class="input-group-btn">
+	         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	         <span class="glyphicon glyphicon-search"></span></span> <span class="caret"></span>
+	         </button>
+	         <ul class="dropdown-menu dropdown-menu-right">
+	         	<li><a class="inputBtn" id="Search" href="#">Search</a></li>
+	           <li><a class="inputBtn" id="reSearch" href="#">Re-Search</a></li>
+	           <li><a class="inputBtn" id="clearSearch" href="#">Clear Searches</a></li>
+	           <li role="separator" class="divider"></li>
+	           <li><a class="inputBtn" id="randomSearch" href="#">Random</a></li>
+	         </ul>
+	       </div>
+	     </div>
     </div>
 
   </div>
@@ -35,15 +49,12 @@
 		<div class="row text-center">
 			<h1 id="gifr" >gifR</h1>
 		</div>
-
 		
 		<div class="row">
 			<div class="col-xs-10 col-xs-offset-1" id="gifContainer"></div>
 		</div>
 	</div>
-	
 
-
-<script src="./assets/js/logic.js"></script>	
+<script src="./assets/js/logic2.js"></script>	
 </body>
 </html>
